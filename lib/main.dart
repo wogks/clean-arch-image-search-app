@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:image_search_clean/ui/home_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,18 +16,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const HomeScreen(),
     );
   }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
-
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
 }
 

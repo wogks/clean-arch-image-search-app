@@ -1,101 +1,100 @@
 class Photo {
-  num? id;
-  String? pageURL;
-  String? type;
-  String? tags;
-  String? previewURL;
-  num? previewWidth;
-  num? previewHeight;
-  String? webformatURL;
-  num? webformatWidth;
-  num? webformatHeight;
-  String? largeImageURL;
-  num? imageWidth;
-  num? imageHeight;
-  num? imageSize;
-  num? views;
-  num? downloads;
-  num? collections;
-  num? likes;
-  num? comments;
-  num? userId;
-  String? user;
-  String? userImageURL;
-
   Photo({
-    this.id,
-    this.pageURL,
-    this.type,
-    this.tags,
-    this.previewURL,
-    this.previewWidth,
-    this.previewHeight,
-    this.webformatURL,
-    this.webformatWidth,
-    this.webformatHeight,
-    this.largeImageURL,
-    this.imageWidth,
-    this.imageHeight,
-    this.imageSize,
-    this.views,
-    this.downloads,
-    this.collections,
-    this.likes,
-    this.comments,
-    this.userId,
-    this.user,
-    this.userImageURL,
+    required this.id,
+    required this.pageURL,
+    required this.type,
+    required this.tags,
+    required this.previewURL,
+    required this.previewWidth,
+    required this.previewHeight,
+    required this.webformatURL,
+    required this.webformatWidth,
+    required this.webformatHeight,
+    required this.largeImageURL,
+    required this.imageWidth,
+    required this.imageHeight,
+    required this.imageSize,
+    required this.views,
+    required this.downloads,
+    required this.collections,
+    required this.likes,
+    required this.comments,
+    required this.userId,
+    required this.user,
+    required this.userImageURL,
   });
-
-  Photo.fromJson(Map<String, dynamic> json) {
-    id = json['id'] as num?;
-    pageURL = json['pageURL'] as String?;
-    type = json['type'] as String?;
-    tags = json['tags'] as String?;
-    previewURL = json['previewURL'] as String?;
-    previewWidth = json['previewWidth'] as num?;
-    previewHeight = json['previewHeight'] as num?;
-    webformatURL = json['webformatURL'] as String?;
-    webformatWidth = json['webformatWidth'] as num?;
-    webformatHeight = json['webformatHeight'] as num?;
-    largeImageURL = json['largeImageURL'] as String?;
-    imageWidth = json['imageWidth'] as num?;
-    imageHeight = json['imageHeight'] as num?;
-    imageSize = json['imageSize'] as num?;
-    views = json['views'] as num?;
-    downloads = json['downloads'] as num?;
-    collections = json['collections'] as num?;
-    likes = json['likes'] as num?;
-    comments = json['comments'] as num?;
-    userId = json['user_id'] as num?;
-    user = json['user'] as String?;
-    userImageURL = json['userImageURL'] as String?;
+  late final int id;
+  late final String pageURL;
+  late final String type;
+  late final String tags;
+  late final String previewURL;
+  late final int previewWidth;
+  late final int previewHeight;
+  late final String webformatURL;
+  late final int webformatWidth;
+  late final int webformatHeight;
+  late final String largeImageURL;
+  late final int imageWidth;
+  late final int imageHeight;
+  late final int imageSize;
+  late final int views;
+  late final int downloads;
+  late final int collections;
+  late final int likes;
+  late final int comments;
+  late final int userId;
+  late final String user;
+  late final String userImageURL;
+  
+  Photo.fromJson(Map<String, dynamic> json){
+    id = json['id'];
+    pageURL = json['pageURL'];
+    type = json['type'];
+    tags = json['tags'];
+    previewURL = json['previewURL'];
+    previewWidth = json['previewWidth'];
+    previewHeight = json['previewHeight'];
+    webformatURL = json['webformatURL'];
+    webformatWidth = json['webformatWidth'];
+    webformatHeight = json['webformatHeight'];
+    largeImageURL = json['largeImageURL'];
+    imageWidth = json['imageWidth'];
+    imageHeight = json['imageHeight'];
+    imageSize = json['imageSize'];
+    views = json['views'];
+    downloads = json['downloads'];
+    collections = json['collections'];
+    likes = json['likes'];
+    comments = json['comments'];
+    userId = json['user_id'];
+    user = json['user'];
+    userImageURL = json['userImageURL'];
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> json = <String, dynamic>{};
-    json['id'] = id;
-    json['pageURL'] = pageURL;
-    json['type'] = type;
-    json['tags'] = tags;
-    json['previewURL'] = previewURL;
-    json['previewWidth'] = previewWidth;
-    json['previewHeight'] = previewHeight;
-    json['webformatURL'] = webformatURL;
-    json['webformatWidth'] = webformatWidth;
-    json['webformatHeight'] = webformatHeight;
-    json['largeImageURL'] = largeImageURL;
-    json['imageWidth'] = imageWidth;
-    json['imageHeight'] = imageHeight;
-    json['imageSize'] = imageSize;
-    json['views'] = views;
-    json['downloads'] = downloads;
-    json['collections'] = collections;
-    json['likes'] = likes;
-    json['comments'] = comments;
-    json['user_id'] = userId;
-    json['user'] = user;
-    json['userImageURL'] = userImageURL;
-    return json;
+    final data = <String, dynamic>{};
+    data['id'] = id;
+    data['pageURL'] = pageURL;
+    data['type'] = type;
+    data['tags'] = tags;
+    data['previewURL'] = previewURL;
+    data['previewWidth'] = previewWidth;
+    data['previewHeight'] = previewHeight;
+    data['webformatURL'] = webformatURL;
+    data['webformatWidth'] = webformatWidth;
+    data['webformatHeight'] = webformatHeight;
+    data['largeImageURL'] = largeImageURL;
+    data['imageWidth'] = imageWidth;
+    data['imageHeight'] = imageHeight;
+    data['imageSize'] = imageSize;
+    data['views'] = views;
+    data['downloads'] = downloads;
+    data['collections'] = collections;
+    data['likes'] = likes;
+    data['comments'] = comments;
+    data['user_id'] = userId;
+    data['user'] = user;
+    data['userImageURL'] = userImageURL;
+    return data;
   }
 }
