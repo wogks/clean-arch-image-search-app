@@ -1,36 +1,27 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:image_search_clean/model/photo.dart';
 import 'package:image_search_clean/ui/widget/photo_widget.dart';
-import 'package:http/http.dart' as http;
+
+import '../data/api.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
-  
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-    final _controller = TextEditingController();
+  final api = PixabayApi();
+  final _controller = TextEditingController();
   List<Photo> _photos = [];
 
-  Future<List<Photo>> fetch (String query) async {
-    final response = await http.get(Uri.parse(
-      'https://pixabay.com/api/?key=28871499-c75df118d01f09e96aaf02d60&q=$query&image_type=photo&pretty=true'),);
-      Map<String, dynamic> json = jsonDecode(response.body);
-
-      Iterable hits = json['hits'];
-
-      return hits.map((e) => Photo.fromJson(e)).toList();
-  }
   @override
   void dispose() {
     _controller.dispose();
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,12 +41,11 @@ class _HomeScreenState extends State<HomeScreen> {
               controller: _controller,
               decoration: InputDecoration(
                 suffixIcon: IconButton(
-                  onPressed: () async{
-                    final photos = await fetch(_controller.text);
+                  onPressed: () async {
+                    final photos = await api.fetch(_controller.text);
                     setState(() {
                       _photos = photos;
                     });
-
                   },
                   icon: const Icon(Icons.search),
                 ),
@@ -69,7 +59,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           Expanded(
             child: GridView.builder(
-              padding: const EdgeInsets.all(16),
+                padding: const EdgeInsets.all(16),
                 itemCount: _photos.length,
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
