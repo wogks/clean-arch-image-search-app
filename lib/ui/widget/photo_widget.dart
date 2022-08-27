@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:image_search_clean/model/photo.dart';
 
 class PhotoWidget extends StatefulWidget {
-  Photo photo;
-  PhotoWidget({Key? key, required this.photo}) : super(key: key);
+  final Photo photo;
+  const PhotoWidget({Key? key, required this.photo}) : super(key: key);
 
   @override
   State<PhotoWidget> createState() => _PhotoWidgetState();
