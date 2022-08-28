@@ -1,11 +1,10 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:image_search_clean/data/api.dart';
-import '../model/photo.dart';
+import 'package:image_search_clean/ui/widget/home_view_model.dart';
 
 class PhotoProvider extends InheritedWidget {
+  final HomeViewModel viewModel;
 
-  PhotoProvider({Key? key, required super.child})
+  PhotoProvider({Key? key, required this.viewModel, required super.child})
       : super(key: key);
 
   static PhotoProvider of(BuildContext context) {
