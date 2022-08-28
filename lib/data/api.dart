@@ -5,6 +5,7 @@ import 'package:http/http.dart' as http;
 class PixabayApi{ 
 final baseUrl = 'https://pixabay.com/api/';
 final key = '28871499-c75df118d01f09e96aaf02d60';
+
 Future<List<Photo>> fetch(String query) async {
   final response = await http.get(
     Uri.parse(
