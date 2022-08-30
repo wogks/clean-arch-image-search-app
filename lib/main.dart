@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: ChangeNotifierProvider(
-        create: (_) => HomeViewModel(PixabayApi()),
+        create: (_) => HomeViewModel(),
         child: const HomeScreen(),
       ),
     );

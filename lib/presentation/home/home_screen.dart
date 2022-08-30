@@ -41,7 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
               decoration: InputDecoration(
                 suffixIcon: IconButton(
                   onPressed: () async {
-                    context.read<HomeViewModel>().fetch(_controller.text);
+                    viewModel.fetch(_controller.text);
                   },
                   icon: const Icon(Icons.search),
                 ),
@@ -53,21 +53,20 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
           ),
-          Consumer<HomeViewModel>(builder: (_, viewModel, child) {
-            return Expanded(
-              child: GridView.builder(
-                  padding: const EdgeInsets.all(16),
-                  itemCount: viewModel.photos.length,
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      crossAxisSpacing: 16,
-                      mainAxisSpacing: 16),
-                  itemBuilder: (context, index) {
-                    final photo = viewModel.photos[index];
-                    return PhotoWidget(photo: photo);
-                  }),
-            );
-          })
+          Expanded(
+                  child: GridView.builder(
+                      padding: const EdgeInsets.all(16),
+                      itemCount: viewModel.photos.length,
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 2,
+                              crossAxisSpacing: 16,
+                              mainAxisSpacing: 16),
+                      itemBuilder: (context, index) {
+                        final photo = viewModel.photos[index];
+                        return PhotoWidget(photo: photo);
+                      }),
+                )
         ],
       ),
     );
