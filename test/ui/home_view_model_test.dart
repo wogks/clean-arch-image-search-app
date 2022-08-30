@@ -11,7 +11,7 @@ void main() {
     await viewModel.fetch('apple');
     await viewModel.fetch('iphone');
     expect(
-      viewModel.photoStream,
+      viewModel.photos,
       emitsInOrder(
         [
           equals([]),
