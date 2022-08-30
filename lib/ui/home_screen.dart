@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:image_search_clean/data/provider.dart';
 import 'package:image_search_clean/model/photo.dart';
 import 'package:image_search_clean/ui/widget/home_view_model.dart';
 import 'package:image_search_clean/ui/widget/photo_widget.dart';
@@ -54,28 +53,20 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
           ),
-          StreamBuilder<List<Photo>>(
-              stream: viewModel.photoStream,
-              builder: (context, snapshot) {
-                if (!snapshot.hasData) {
-                  return const CircularProgressIndicator();
-                }
-                final photos = snapshot.data!;
-                return Expanded(
+          Expanded(
                   child: GridView.builder(
                       padding: const EdgeInsets.all(16),
-                      itemCount: photos.length,
+                      itemCount: viewModel.photos.length,
                       gridDelegate:
                           const SliverGridDelegateWithFixedCrossAxisCount(
                               crossAxisCount: 2,
                               crossAxisSpacing: 16,
                               mainAxisSpacing: 16),
                       itemBuilder: (context, index) {
-                        final photo = photos[index];
+                        final photo = viewModel.photos[index];
                         return PhotoWidget(photo: photo);
                       }),
-                );
-              })
+                )
         ],
       ),
     );
