@@ -1,12 +1,11 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:image_search_clean/data/photo_repository_api.dart';
 import 'package:image_search_clean/model/photo.dart';
-import 'package:image_search_clean/ui/widget/home_view_model.dart';
+import 'package:image_search_clean/presentation/home/home_view_model.dart';
 
 void main() {
   test('stream이 잘 되야함', () async {
     final viewModel = HomeViewModel(FakePhotoApi());
-    final result = equals(fake.map((e) => Photo.fromJson(e)).toList());
 
     await viewModel.fetch('apple');
     await viewModel.fetch('iphone');

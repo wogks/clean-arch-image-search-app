@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:image_search_clean/ui/home_screen.dart';
-import 'package:image_search_clean/ui/widget/home_view_model.dart';
+import 'package:image_search_clean/presentation/home/home_screen.dart';
+import 'package:image_search_clean/presentation/home/home_view_model.dart';
 import 'package:provider/provider.dart';
-
 import 'data/pixabay_api.dart';
 
 void main() {
@@ -21,7 +20,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: ChangeNotifierProvider(
-        create: (_) => HomeViewModel(),
+        create: (_) => HomeViewModel(PixabayApi()),
         child: const HomeScreen(),
       ),
     );

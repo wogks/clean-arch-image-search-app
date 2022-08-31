@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:image_search_clean/model/photo.dart';
-import 'package:image_search_clean/ui/widget/home_view_model.dart';
-import 'package:image_search_clean/ui/widget/photo_widget.dart';
+import 'package:image_search_clean/presentation/widget/photo_widget.dart';
 import 'package:provider/provider.dart';
+
+import 'home_view_model.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -23,6 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     final viewModel = context.watch<HomeViewModel>();
+    
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -53,7 +54,9 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
           ),
-          Expanded(
+          viewModel.isLoading
+              ? const CircularProgressIndicator()
+              : Expanded(
                   child: GridView.builder(
                       padding: const EdgeInsets.all(16),
                       itemCount: viewModel.photos.length,
